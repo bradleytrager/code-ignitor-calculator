@@ -5,6 +5,7 @@ class Calculator extends CI_Controller {
 	public function index()
 	{
 		//see application/config/form_validation for validation rules
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 		$this->form_validation->run();
 
 		//get input valuew
