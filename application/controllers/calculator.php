@@ -5,7 +5,7 @@ class Calculator extends CI_Controller {
 	public function index()
 	{
 		//see application/config/form_validation for validation rules
-		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+		$this->form_validation->set_error_delimiters('<li class="text-danger">', '</li>');
 		$this->form_validation->run();
 
 		//get input valuew
@@ -30,35 +30,18 @@ class Calculator extends CI_Controller {
 		$result = null;
 		switch ($operator) {
 			case '+':
-				$result = $this->add($operandA, $operandB);
+				$result = $operandA + $operandB;
 			break;
 			case '-':
-				$result = $this->subtract($operandA, $operandB);
+				$result = $operandA - $operandB;
 			break;
 			case '*':
-				$result = $this->multiply($operandA, $operandB);
+				$result = $operandA * $operandB;
 			break;
 			case '/':
-				$result = $this->divide($operandA, $operandB);
+				$result = $operandA / $operandB;
 			break;
 		}
-		return $result;
-	}
-
-	public function add($operandA, $operandB){
-		$result = $operandA + $operandB;
-		return $result;
-	}
-	public function subtract($operandA, $operandB){
-		$result = $operandA - $operandB;
-		return $result;
-	}
-	public function multiply($operandA, $operandB){
-		$result = $operandA * $operandB;
-		return $result;
-	}
-	public function divide($operandA, $operandB){
-		$result = $operandA / $operandB;
 		return $result;
 	}
 
@@ -70,48 +53,16 @@ class Calculator extends CI_Controller {
 		if($match == 1){
 			return true;
 		}
-		
+	
 		return false;
 	}
 
 	//Tests
-	public function testAdd(){
-		$test = $this->add(1, 1);
-		$expected_result = 2;
-		$test_name = 'Adds one plus one';
-		$this->unit->run($test, $expected_result, $test_name);	
-	}
-
-	public function testSubtract(){
-		$test = $this->subtract(1, 1);
-		$expected_result = 0;
-		$test_name = 'Subtract one minus one';
-		$this->unit->run($test, $expected_result, $test_name);	
-	}
-	public function testMultiply(){
-		$test = $this->multiply(2, 2);
-		$expected_result = 4;
-		$test_name = 'Multiply 4 times 4';
-		$this->unit->run($test, $expected_result, $test_name);	
-	}
-	public function testDivide(){
-		$test = $this->divide(9, 3);
-		$expected_result = 3;
-		$test_name = 'Dived 9 by 3';
-		$this->unit->run($test, $expected_result, $test_name);	
-	}
-	public function testEvaluate(){
-		$test = $this->evaluate(4, 4, "+");
-		$expected_result = 8;
-		$test_name = 'Evaluate 4 + 4';
-		$this->unit->run($test, $expected_result, $test_name);	
-	}
 	public function test(){
-		$this->testAdd();
-		$this->testSubtract();
-		$this->testMultiply();
-		$this->testDivide();
-		$this->testEvaluate();
+		$this->unit->run($this->evaluate(4, 4, "+"), 8, 'Evaluate 4 + 4');	
+		$this->unit->run($this->evaluate(4, 4, "-"), 0, 'Evaluate 4 - 4');	
+		$this->unit->run($this->evaluate(4, 4, "*"), 16, 'Evaluate 4 * 4');	
+		$this->unit->run($this->evaluate(4, 4, "/"), 1, 'Evaluate 4 / 4');	
 		echo $this->unit->report();
 	}
 

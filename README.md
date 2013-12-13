@@ -1,6 +1,8 @@
 code-ignitor-calculator
 =======================
 
+A pure php application which adds, subtracts, multiplies or divides 2 numbers.  It validates user input and persists the input values after the form is submitted.
+
 The main functionality of this app is contained in application > controllers > calculator.php
 
 Form validation can be found in application > config > form_validation.php
