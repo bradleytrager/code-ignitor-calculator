@@ -1,4 +1,3 @@
-</div>
-</div>
-</body>
+			</div><!--end container-->
+	</body>
 </html>
