@@ -6,13 +6,13 @@
 <?php echo form_open('calculator', array('class'=> 'form-inline')) ?>
 <div class="row">
 	<div class="col-sm-4">
-		<input type="text"  class="form-control"  name="operandA" placeholder="First Operand" value="<?php echo $operandA; ?>"/>
+		<input type="text"  class="form-control"  name="operandA" placeholder="First Operand" value="{operandA}"/>
 	</div>
 	<div class="col-sm-2">
-		<input type="text"  class="form-control" name="operator" placeholder="Operator (+, -, *, /)" value="<?php echo $operator; ?>"/>
+		<input type="text"  class="form-control" name="operator" placeholder="Operator (+, -, *, /)" value="{operator}"/>
 	</div>
 	<div class="col-sm-4">
-		<input type="text"  class="form-control"  name="operandB" placeholder="Second Operand" value="<?php echo $operandB; ?>"/>
+		<input type="text"  class="form-control"  name="operandB" placeholder="Second Operand" value="{operandB}"/>
 
 	</div>
 	<div class="col-sm-2">
@@ -24,6 +24,6 @@
 <ul><?php echo validation_errors(); ?></ul>
 
 <?php if(isset($result)){ ?>
-<h3 class="text-success">Result: <?php echo $result; ?></h3>
+<h3 class="text-success">Result: {result}</h3>
 <?php } ?>
 

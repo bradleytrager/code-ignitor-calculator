@@ -17,12 +17,14 @@ class Calculator extends CI_Controller {
 		$result = $this->evaluate($this->data['operandA'], $this->data['operandB'], $this->data['operator']);
 		
 		//set result on view
+
 		$this->data['result'] = $result;
 
+		
 		//load view
-		$this->load->view('templates/header', $this->data);
-		$this->load->view('pages/calculator', $this->data);
-		$this->load->view('templates/footer', $this->data);
+		$this->load->view('templates/header');
+		$this->parser->parse('pages/calculator', $this->data);
+		$this->load->view('templates/footer');
 		
 	}
 
