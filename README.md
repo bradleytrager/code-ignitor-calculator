@@ -11,4 +11,8 @@ Routing can be found in application > config > routes.php
 
 To run the calculator start apache at the root directory
 
-To run the tests navigate to http://localhost/index.php/calculator/test
+
+To install dependencies, intall composer and use `php composer.phar install` from the command line.
+To run the tests which use the built-in code igniter testing functions, navigate to `http://localhost/index.`php/calculator/test
+
+To run the phpunit tests make sure php unit is installed and execute `phpunit spec` from the command line in the root of the project.

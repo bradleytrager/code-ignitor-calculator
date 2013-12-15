@@ -66,6 +66,15 @@ class Calculator extends CI_Controller {
 		$this->unit->run($this->evaluate(4, 4, "-"), 0, 'Evaluate 4 - 4');	
 		$this->unit->run($this->evaluate(4, 4, "*"), 16, 'Evaluate 4 * 4');	
 		$this->unit->run($this->evaluate(4, 4, "/"), 1, 'Evaluate 4 / 4');	
+
+		$this->unit->run($this->valid_operator("+"), TRUE, '"+"" is a Valid operator');
+		$this->unit->run($this->valid_operator("-"), TRUE, '"-" is a Valid operator');	
+		$this->unit->run($this->valid_operator("*"), TRUE, '"*" is a Valid operator');
+		$this->unit->run($this->valid_operator("/"), TRUE, '"/" is a Valid operator');
+
+		$this->unit->run($this->valid_operator("++"), FALSE, '"++"" is a not Valid operator');
+		$this->unit->run($this->valid_operator("-+"), FALSE, '"-+" is not a Valid operator');	
+		
 		echo $this->unit->report();
 	}
 
